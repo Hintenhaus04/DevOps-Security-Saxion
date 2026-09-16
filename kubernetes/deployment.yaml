@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: quoterxp
-        image: hhmbroekman/student-app:latest
+        image: hintenhaus04/devops-security-saxion:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
