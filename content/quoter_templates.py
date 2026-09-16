@@ -1,3 +1,6 @@
+from html import escape
+
+
 def quote_fragment(id, text, attribution):
     return f"""
 <a href="/quotes/{id}" class="quote img{id % 13}">
@@ -51,6 +54,7 @@ def comments_page(quote,comments,user_id):
 
 
 
+# Line 104: escape(error) prevents the error text (from the ?error= URL param) from injecting HTML/JS (XSS).
 def page(content,user_id,title,error=None):
 
     if user_id:
@@ -97,7 +101,7 @@ def page(content,user_id,title,error=None):
 <div class="modal">
   <form action="/signin" method="post">
     <p class="warn">WARNING!!: This site is intentionally insecure. Do not use passwords you may be using on other services.</p>
-    {f"<div class=error>{error}</div>" if error else ""}
+    {f"<div class=error>{escape(error)}</div>" if error else ""}
     <h3>Username</h3>
     <input type="text" name="username">
     <h3>Password</h3>
