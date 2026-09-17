@@ -70,7 +70,7 @@ def page(content,user_id,title,error=None):
     return f"""<!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <title>{title or "Poah dit werkt"}</title>
+  <title>{title or "ja het werkt"}</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="/static/style.css">
 </head>
@@ -79,7 +79,7 @@ def page(content,user_id,title,error=None):
 
 <header>
   <div class="title">
-    <a class="home" href="/"dit doet ook?</a>
+    <a class="home" href="/">Quoter XP</a>
     {links}
   </div>
 </header>
