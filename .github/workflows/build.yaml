@@ -28,7 +28,7 @@ jobs:
           push: true
           tags: |
             hintenhaus04/devops-security-saxion:latest
-            
+
   scan:
     name: Scan
     needs: [ build ]
@@ -84,6 +84,6 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - run: |
-              sudo kubectl delete deployment --all              
+              sudo kubectl delete deployment --all
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/deployment.yaml --force
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/nginx-service.yaml --force
