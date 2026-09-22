@@ -3,3 +3,23 @@ url: 54.227.121.88:30000
 method: GET
 settings: {}
 order: 2000
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Status code is 200", function () {
+          pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is below 2000ms", function () {
+          pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      pm.test("Content-Type is text/html", function () {
+          pm.response.to.have.header("Content-Type");
+          pm.expect(pm.response.headers.get("Content-Type")).to.include("text/html");
+      });
+
+      pm.test("Page renders the expected title", function () {
+          pm.expect(pm.response.text()).to.include("ja het werkt");
+      });
