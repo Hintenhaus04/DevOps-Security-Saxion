@@ -89,6 +89,8 @@ jobs:
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/nginx-service.yaml --force
 
   automated-api-tests:
+    name: Postman API Tests
+    needs: [ deploy ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
