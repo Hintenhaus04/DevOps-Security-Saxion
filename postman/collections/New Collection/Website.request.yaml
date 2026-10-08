@@ -1,5 +1,5 @@
 $kind: http-request
-url: 54.227.121.88:30000
+url: 100.31.107.31:30000
 method: GET
 settings: {}
 order: 2000
