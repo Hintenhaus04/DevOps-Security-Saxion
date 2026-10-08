@@ -1,6 +1,10 @@
 # Use an official Python runtime as a parent image
 FROM python:3.12-alpine
 
+# Upgrade OS packages to pick up security fixes not yet in the base image
+# (e.g. zlib 1.3.2-r1 for CVE-2026-85091)
+RUN apk upgrade --no-cache
+
 # Set work directory in the container
 WORKDIR /app
 
