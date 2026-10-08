@@ -1,4 +1,4 @@
-# DevOps Security
+## DevOps Security
 
 School project for the DevOps Security specialisation at Saxion University of Applied Sciences.
 
