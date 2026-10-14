@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: quoter-allow-5000-only
+  namespace: solidapps
+spec:
+  podSelector:
+    matchLabels:
+      app: quoterxp
+  policyTypes:
+    - Ingress
+  ingress:
+    - ports:
+        - protocol: TCP
+          port: 5000

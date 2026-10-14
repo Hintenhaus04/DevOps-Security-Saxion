@@ -88,7 +88,8 @@ jobs:
               sudo kubectl delete deployment --all -n solidapps --ignore-not-found
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/deployment.yaml --force
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/nginx-service.yaml --force
-              sudo kubectl apply -f ${{ github.workspace }}/kubernetes/ingress.yaml
+              sudo kubectl apply -f ${{ github.workspace }}/kubernetes/ingress.yaml --force
+              sudo kubectl apply -f ${{ github.workspace }}/kubernetes/networkpolicy.yaml --force
 
   automated-api-tests:
     name: Postman API Tests
