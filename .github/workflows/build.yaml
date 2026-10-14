@@ -84,7 +84,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - run: |
-              sudo kubectl delete deployment --all
+              sudo kubectl delete deployment --all -n solidapps
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/deployment.yaml --force
               sudo kubectl apply -f ${{ github.workspace }}/kubernetes/nginx-service.yaml --force
 
