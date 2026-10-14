@@ -16,12 +16,20 @@ spec:
       labels:
         app: quoterxp
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
       containers:
       - name: quoterxp
         image: hintenhaus04/devops-security-saxion:latest
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          capabilities:
+            drop: ["ALL"]
       imagePullSecrets:
         - name: my-registry-secret
-         
